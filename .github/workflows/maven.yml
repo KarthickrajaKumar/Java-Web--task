@@ -27,7 +27,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-deploy:
+  deploy:
     runs-on: self-hosted
     needs: build
 
