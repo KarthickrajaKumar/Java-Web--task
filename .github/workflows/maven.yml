@@ -41,6 +41,6 @@ deploy:
         distribution: 'temurin'
     - name: Deploy to Server
       run: |
-        scp -r target/my-app.jar user@your-server:/path/to/deploy
-        ssh user@your-server 'bash -s' < ./scripts/deploy.sh
+        scp -r target\dependency\webapp-runner.jar DevOps@192.168.0.25:C:\Host\Apache Software Foundation\Tomcat 10.1.25
+        ssh DevOps@192.168.0.25 'bash -s' < ./scripts/deploy.sh
     
