@@ -41,7 +41,7 @@ jobs:
         distribution: 'temurin'
     - name: Deploy to Server
       run: |
-        & "C:\Path\To\curl.exe" -T target\dependency\webapp-runner.jar sftp://DevOps@192.168.0.25:C:\Host\Apache Software Foundation\Tomcat 10.1.25
+        curl -T target\dependency\webapp-runner.jar sftp://DevOps@192.168.0.25:C:\Host\Apache Software Foundation\Tomcat 10.1.25
           ssh DevOps@192.168.0.25 'bash -c "$(cat ./scripts/deploy.sh)"'
 
 
