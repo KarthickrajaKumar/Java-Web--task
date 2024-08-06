@@ -41,11 +41,12 @@ jobs:
         distribution: 'temurin'
     - name: Deploy to Server
       run: |
-        curl -T target\dependency\webapp-runner.jar sftp://DevOps@192.168.0.25:C:\Host\Apache Software Foundation\Tomcat 10.1.25
+        & "C:\Path\To\curl.exe" -T target\dependency\webapp-runner.jar sftp://DevOps@192.168.0.25:C:\Host\Apache Software Foundation\Tomcat 10.1.25
           $script = Get-Content ./scripts/deploy.sh -Raw
           Invoke-Command -ComputerName 192.168.0.25 -Credential (Get-Credential) -ScriptBlock {
           param($script)
           bash -c $script
           } -ArgumentList $script
 
-               
+
+              
