@@ -34,7 +34,7 @@ jobs:
     steps:
     - name: Deploy to Server
       run: |
-        cp -r target\dependency\webapp-runner.war\* C:\Host\Apache Software Foundation\Tomcat 10.1.25\webapps\
+        cp target\*.war C:\Host\Apache Software Foundation\Tomcat 10.1.25\webapps\
 
 
         
