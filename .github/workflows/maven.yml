@@ -34,7 +34,7 @@ jobs:
     steps:
     - name: Deploy to Server
       run: |
-        cp target\*.war C:\Host\Apache Software Foundation\Tomcat 10.1.25\webapps\
+        Copy-Item target\*.war "C:\Host\Apache Software Foundation\Tomcat 10.1.25\webapps"
 
 
         
