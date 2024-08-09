@@ -1,14 +1,11 @@
-name: CI
+name: Trigger Another Workflow
 
-# Only trigger, when the build workflow succeeded
 on:
-  workflow_run:
-    workflows: ["maven.yml"]
-    types:
-      - completed
+  workflow_dispatch:
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  trigger_workflow:
+    uses: actions/workflow-dispatch@v1
+    with:
+      ref: main  # Replace with the branch to trigger the workflow on
+      workflow_id: MyOtherWorkflow 
