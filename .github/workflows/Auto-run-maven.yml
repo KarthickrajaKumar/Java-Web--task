@@ -1,11 +1,11 @@
-name: Trigger Another Workflow
+name: Trigger Java CI
 
 on:
   workflow_dispatch:
 
 jobs:
-  trigger_workflow:
-    uses: actions/workflow-dispatch@v3
+  trigger_job:
+    uses: actions/workflow-dispatch@v1
     with:
-      ref: main  # Replace with the branch to trigger the workflow on
-      workflow_id: MyOtherWorkflow 
+      ref: main
+      workflow_id: Java_CI_with_Maven
