@@ -5,7 +5,7 @@ on:
 
 jobs:
   trigger_workflow:
-    uses: actions/workflow-dispatch@v1
+    uses: actions/workflow-dispatch@v3
     with:
       ref: main  # Replace with the branch to trigger the workflow on
       workflow_id: MyOtherWorkflow 
