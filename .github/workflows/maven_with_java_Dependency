@@ -1,8 +1,0 @@
-name: CI
-
-# Only trigger, when the build workflow succeeded
-on:
-  workflow_run:
-    workflows: ["maven.yml"]
-    types:
-      - completed
