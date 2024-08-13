@@ -2,7 +2,7 @@ name: check the workflow run
 
 on:
   workflow_run:
-    workflows: [.github/workflows/maven.yml]
+    workflows: [Java CI with Maven]
     types: [completed]
 
 jobs:
