@@ -1,9 +1,10 @@
 name: check the workflow run
 
 on:
-  workflow_run:
-    workflows: [Java CI with Maven]
-    types: [completed]
+  workflow_dispatch:
+  #workflow_run:
+   # workflows: [Java CI with Maven]
+   #types: [completed]
 
 jobs:
   download:
