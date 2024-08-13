@@ -1,4 +1,4 @@
-name: check the workflow run
+name: Environment workflow run
 
 on:
   workflow_dispatch:
