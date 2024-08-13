@@ -1,0 +1,7 @@
+name: check the workflow run
+
+on:
+  workflow_run:
+    workflows: [Build]
+    types: [completed]
+
