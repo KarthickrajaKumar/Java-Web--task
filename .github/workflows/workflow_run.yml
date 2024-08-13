@@ -5,3 +5,9 @@ on:
     workflows: [Build]
     types: [completed]
 
+jobs:
+  download:
+    runs-on: self-hosted
+    steps:
+      - name: 'Run_java'
+        run: echo "the workflow is running"
