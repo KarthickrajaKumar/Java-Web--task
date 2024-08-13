@@ -1,11 +1,11 @@
 name: Trigger Java CI
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
 
 jobs:
   trigger_job:
-    uses: actions/workflow-dispatch@v1
+    uses: ./.github/workflows/maven.yml
     with:
-      ref: main
-      workflow_id: Java_CI_with_Maven
+      ref: main 
+      workflow_id: Java_CI_with_Maven 
