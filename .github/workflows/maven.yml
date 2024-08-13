@@ -10,12 +10,18 @@ name: Java CI with Maven
 
 on:
   workflow_dispatch:
-
+    inputs:
+      environment:
+        description: The environment to deploy to
+        type: choice
+        options:
+          - development
+          - staging
+          - production
 jobs:
   build:
     runs-on: self-hosted
-    environment: DevOps
-
+   
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
