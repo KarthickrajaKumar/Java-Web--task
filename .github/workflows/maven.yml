@@ -11,7 +11,7 @@ name: Build and Deploy
 on:
   workflow_dispatch:
     inputs:
-      priya:
+      environment:
         description: The environment to deploy to
         type: choice
         options:
@@ -21,7 +21,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    environment: ${{ github.event.inputs.priya }}
+    environment: ${{ github.event.inputs.environment }}
    
     steps:
     - uses: actions/checkout@v3
