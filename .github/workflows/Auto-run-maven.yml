@@ -6,6 +6,6 @@ on:
 jobs:
   trigger_job:
     uses: ./.github/workflows/maven.yml
-    with:
-      ref: main 
-      workflow_id: Java_CI_with_Maven 
+    #with:
+      #ref: main 
+      #workflow_id: Java_CI_with_Maven 
