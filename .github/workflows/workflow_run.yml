@@ -8,6 +8,7 @@ on:
 jobs:
   download:
     runs-on: self-hosted
+    environment: DevOps
     steps:
       - name: 'Run_java'
         run: echo "the workflow is running"
