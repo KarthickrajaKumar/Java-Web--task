@@ -14,7 +14,7 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted  
-    if: github.event.inputs.environment == 'production' || github.event.inputs.environment == 'DevOps'
+    if: github.event.inputs.environment ≠ 'development' 
     steps:
       - name: 'Run_java'
         run: echo "the workflow is running"
