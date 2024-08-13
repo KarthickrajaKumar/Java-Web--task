@@ -2,12 +2,19 @@ name: check the workflow run
 
 on:
   workflow_dispatch:
-  
+    inputs:
+      environment:
+        description: The environment to deploy to
+        type: choice
+        options:
+          - development
+          - production
+          - DevOps
 
 jobs:
-  download:
-    runs-on: self-hosted
-    environment: DevOps
+  deploy:
+    runs-on: self-hosted  
+    if: ${{ github.event.inputs.environment == 'production', 'DevOps' }}
     steps:
       - name: 'Run_java'
         run: echo "the workflow is running"
