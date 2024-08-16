@@ -12,7 +12,7 @@ jobs:
       - name: Set version
         id: version_no
         run: |
-          echo "version = 1.2.3" >> #Test
+          echo "version=1.2.3" >> Test
 
   deploy:
     needs: build
