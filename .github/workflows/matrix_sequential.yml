@@ -1,0 +1,28 @@
+name: My Matrix sequential Workflow
+
+on:
+ workflow_dispatch:
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [Development, Production, DevOps]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set environment
+        run: echo "Environment:${{ matrix.environment }}"
+
+      - name: Run Development tasks
+        if: ${{ matrix.environment == 'Development' }}
+        run: echo "Running tasks for Development"
+
+      - name: Run Production tasks
+        if: ${{ matrix.environment == 'Production' }}
+        run: echo "Running tasks for Production"
+
+      - name: Run DevOps tasks
+        if: ${{ matrix.environment == 'DevOps' }}
+        run: echo "Running tasks for DevOps"
