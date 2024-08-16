@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        environment: [dev, test, prod]
+        environment: [Development, Production, DevOps]
     steps:
       - uses: actions/checkout@v3
       - name: Set environment
