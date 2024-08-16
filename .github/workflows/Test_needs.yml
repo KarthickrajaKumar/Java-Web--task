@@ -1,25 +1,22 @@
 name: check the deploy run
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: The environment to deploy to
-        type: choice
-        options:
-          - development
-          - Devops
-          - production
+  
 jobs:
   build:
-    runs-on: self-hosted
-    environment: ${{ github.event.inputs.environment }}
-
-
-deploy:
-    runs-on: self-hosted
-    #needs: build
-
+    runs-on: ubuntu-latest
+    outputs:
+      BUILD_VERSION: ${{ steps.set_version.outputs.version }}
     steps:
-    - name: Deploy to Server
-      run: |
-        Copy-Item target\*.war "C:\Host\Apache Software Foundation\Tomcat 10.1.25\webapps"
+      - uses: actions/checkout@v3
+      - name: Set version
+        id: set_version
+        run: |
+          echo "version=1.2.3" >> $GITHUB_OUTPUT
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print version
+        run: echo "Build version= ${{ needs.build.outputs.BUILD_VERSION }}"
