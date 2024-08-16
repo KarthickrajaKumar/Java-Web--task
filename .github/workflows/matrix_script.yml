@@ -16,10 +16,7 @@ jobs:
         run: echo "Environment:${{ matrix.environment }}"
       - name: Run task
         run: |
-          if [[ "${{ matrix.environment }}" == "dev" ]]; then
-            # Run dev-specific tasks
-          elif [[ "${{ matrix.environment }}" == "test" ]]; then
-            # Run test-specific tasks
-          elif [[ "${{ matrix.environment }}" == "prod" ]]; then
-            # Run prod-specific tasks
+          if [[ "${{ matrix.environment }}" == "Development" ]]; then
+          elif [[ "${{ matrix.environment }}" == "Production" ]]; then
+          elif [[ "${{ matrix.environment }}" == "DevOps" ]]; then
           fi
