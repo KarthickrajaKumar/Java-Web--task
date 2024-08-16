@@ -12,6 +12,7 @@ jobs:
       - name: Set version
         id: set_version
         run: |
+          echo "outputcheck: ${{ steps.set_version.outputs.version }}"
           echo "version=1.2.3" >> $GITHUB_OUTPUT
 
   deploy:
