@@ -13,7 +13,7 @@ jobs:
         id: set_version
         run: |
           echo "outputcheck: ${{ steps.set_version.outputs.version }}"
-          echo "version=1.2.3" >> $GITHUB_OUTPUT
+          echo "version='1.2.3'" >> $GITHUB_OUTPUT
 
   deploy:
     needs: build
@@ -21,5 +21,5 @@ jobs:
     steps:
       - name: Print version
         run: |
-          echo "Build version: ${{ needs.build.outputs.BUILD_VERSION }}"
+          echo "Build version: ${{ needs.build.outputs.version }}"
 
