@@ -4,25 +4,43 @@ on:
  workflow_dispatch:
 
 jobs:
-  my_job:
+  setup:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        environment: [Development, Production, DevOps]
     steps:
       - uses: actions/checkout@v3
 
+  job_development:
+    runs-on: ubuntu-latest
+    needs: setup
+    strategy:
+      matrix:
+        environment: [Development]
+    steps:
       - name: Set environment
         run: echo "Environment:${{ matrix.environment }}"
-
       - name: Run Development tasks
-        if: ${{ matrix.environment == 'Development' }}
         run: echo "Running tasks for Development"
 
+  job_production:
+    runs-on: ubuntu-latest
+    needs: job_development
+    strategy:
+      matrix:
+        environment: [Production]
+    steps:
+      - name: Set environment
+        run: echo "Environment:${{ matrix.environment }}"
       - name: Run Production tasks
-        if: ${{ matrix.environment == 'Production' }}
         run: echo "Running tasks for Production"
 
+  job_devops:
+    runs-on: ubuntu-latest
+    needs: job_production
+    strategy:
+      matrix:
+        environment: [DevOps]
+    steps:
+      - name: Set environment
+        run: echo "Environment:${{ matrix.environment }}"
       - name: Run DevOps tasks
-        if: ${{ matrix.environment == 'DevOps' }}
         run: echo "Running tasks for DevOps"
