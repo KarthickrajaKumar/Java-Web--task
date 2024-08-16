@@ -11,9 +11,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Set version
         id: set_version
-        run: |
-          echo "outputcheck: ${{ steps.set_version.outputs.version }}"
-          echo "version='1.2.3'" >> $GITHUB_OUTPUT
+        run: echo "outputcheck=1.2.3" >> "$GITHUB_OUTPUT"
+          #echo "version='1.2.3'" >> $GITHUB_OUTPUT
 
   deploy:
     needs: build
