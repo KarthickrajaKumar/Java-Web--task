@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set environment
-        run: echo "Environment: ${{ matrix.environment }}"
+        run: echo "Environment:${{ matrix.environment }}"
       - name: Run task
         run: |
           if [[ "${{ matrix.environment }}" == "dev" ]]; then
