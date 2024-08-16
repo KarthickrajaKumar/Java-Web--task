@@ -6,17 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      BUILD_VERSION: ${{ steps.set_version.outputs.version }}
+      VERSION: ${{ steps.version_no.outputs.version }}
     steps:
       - uses: actions/checkout@v3
       - name: Set version
-        id: set_version
+        id: version_no
         run: |
-          echo "version=1.2.3" >> $GITHUB_OUTPUT
+          echo "version=1.2.3"
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Print version
-        run: echo "Build version= ${{ needs.build.outputs.BUILD_VERSION }}"
+        run: echo "version= ${{ needs.build.outputs.VERSION }}"
