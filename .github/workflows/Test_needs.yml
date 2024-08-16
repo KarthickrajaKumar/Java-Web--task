@@ -19,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print version
-        run: echo "Build version: ${{ needs.build.outputs.BUILD_VERSION }}"
+        run: echo "Build version= ${{ needs.build.outputs.BUILD_VERSION }}"
 
