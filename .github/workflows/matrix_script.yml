@@ -1,0 +1,25 @@
+name: My Matrix Workflow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [dev, test, prod]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set environment
+        run: echo "Environment: ${{ matrix.environment }}"
+      - name: Run task
+        run: |
+          if [[ "${{ matrix.environment }}" == "dev" ]]; then
+            # Run dev-specific tasks
+          elif [[ "${{ matrix.environment }}" == "test" ]]; then
+            # Run test-specific tasks
+          elif [[ "${{ matrix.environment }}" == "prod" ]]; then
+            # Run prod-specific tasks
+          fi
