@@ -1,4 +1,4 @@
-name: check the deploy run
+name: reusing output of one job
 on:
   workflow_dispatch:
   
