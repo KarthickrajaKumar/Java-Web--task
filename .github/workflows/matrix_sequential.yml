@@ -1,46 +1,25 @@
-name: My Matrix sequential Workflow
+name: My Matrix Workflow
 
 on:
  workflow_dispatch:
 
 jobs:
-  setup:
+  my_job:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [Development, Production, DevOps]
+      max-parallel: 1
     steps:
       - uses: actions/checkout@v3
-
-  job_development:
-    runs-on: ubuntu-latest
-    needs: setup
-    strategy:
-      matrix:
-        environment: [Development]
-    steps:
       - name: Set environment
         run: echo "Environment:${{ matrix.environment }}"
-      - name: Run Development tasks
-        run: echo "Running tasks for Development"
-
-  job_production:
-    runs-on: ubuntu-latest
-    needs: job_development
-    strategy:
-      matrix:
-        environment: [Production]
-    steps:
-      - name: Set environment
-        run: echo "Environment:${{ matrix.environment }}"
-      - name: Run Production tasks
-        run: echo "Running tasks for Production"
-
-  job_devops:
-    runs-on: ubuntu-latest
-    needs: job_production
-    strategy:
-      matrix:
-        environment: [DevOps]
-    steps:
-      - name: Set environment
-        run: echo "Environment:${{ matrix.environment }}"
-      - name: Run DevOps tasks
-        run: echo "Running tasks for DevOps"
+      - name: Run task
+        run: |
+          if [[ "${{ matrix.environment }}" == "Development" ]]; then
+            echo "Running tasks for Development"
+          elif [[ "${{ matrix.environment }}" == "Production" ]]; then
+            echo "Running tasks for Production"
+          elif [[ "${{ matrix.environment }}" == "DevOps" ]]; then
+            echo "Running tasks for DevOps"
+          fi
