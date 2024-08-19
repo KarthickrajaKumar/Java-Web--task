@@ -1,4 +1,4 @@
-name: My Matrix Workflow
+name: Matrix sequential workflow
 
 on:
  workflow_dispatch:
