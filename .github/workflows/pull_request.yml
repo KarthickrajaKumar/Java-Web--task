@@ -1,7 +1,9 @@
 name: Pull request workflow
 on:
-  pull_request:
-    branches: branch-1
+  pull_request_target:
+    branches: 
+      - main
+      - branch-1
 jobs:
   print:
     runs-on: ubuntu-latest
