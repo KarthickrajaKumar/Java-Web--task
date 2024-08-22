@@ -16,5 +16,5 @@ jobs:
     runs-on: self-hosted  
     if: github.event.inputs.environment != 'development' 
     steps:
-      - name: 'Run_java'
+      - name: 'Run java'
         run: echo "the workflow is running"
