@@ -4,6 +4,8 @@ on:
     branches: 
       - main
       #- branch-1
+    paths:
+      - '.github/workflows/**'
 jobs:
   print:
     runs-on: ubuntu-latest
