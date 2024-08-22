@@ -1,6 +1,6 @@
 name: Pull request workflow
 on:
-  pull_request:
+  pull_request_target:
     branches: 
       - main
       - branch-1
