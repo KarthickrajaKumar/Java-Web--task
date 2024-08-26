@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Generate data
-        run: data = ["Column 1", "Column 2", "Column 3"],
+        run: data = [ ["Column 1", "Column 2", "Column 3"],
             ["Value 1", "Value 2", "Value 3"],
-            ["Value 4", "Value 5", "Value 6"]
+            ["Value 4", "Value 5", "Value 6"] ]
             
       - name: Print table
         run: |
