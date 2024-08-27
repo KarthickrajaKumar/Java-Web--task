@@ -15,8 +15,8 @@ jobs:
       run: |
         echo "| Column 1 | Column 2 | Column 3 |" >> table.md
         echo "|----------|----------|----------|" >> table.md
-        echo "| Test 1  | Test 2  | Test 3  |" >> table.md
-        echo "| Test 4  | Test 5  | Test 6  |" >> table.md
+        echo "| Test 1   | Test 2   | Test 3   |" >> table.md
+        echo "| Test 4   | Test 5   | Test 6   |" >> table.md
         cat table.md
 
     - name: Set output 
@@ -24,8 +24,7 @@ jobs:
       run: |
         echo "table<<EOF" >> $GITHUB_ENV
         cat table.md >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
-
+        
     - name: Display table
       run: echo "${{ env.table }}"
 
