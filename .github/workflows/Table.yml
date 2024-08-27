@@ -1,25 +1,28 @@
 name: Generate Table
 
-on:
-  push:
-    branches: [main]
+on: [push]
 
 jobs:
-  generate_table:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Generate data
-        run: |
-          data=[
-            ["Column 1", "Column 2", "Column 3"],
-            ["Value 1", "Value 2", "Value 3"],
-            ["Value 4", "Value 5", "Value 6"]
-            ]
-      - name: Print table
-        run: |
-          echo "| Column 1 | Column 2 | Column 3 |"
-          echo "|---|---|---|"
-          for row in "${data[@]}"; do
-            echo "| ${row[@]} |"
-          done
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Generate table
+      id: generate_table
+      run: |
+        echo "| Column 1 | Column 2 | Column 3 |" >> table.md
+        echo "|----------|----------|----------|" >> table.md
+        echo "| Value 1  | Value 2  | Value 3  |" >> table.md
+        echo "| Value 4  | Value 5  | Value 6  |" >> table.md
+        cat table.md
+
+    - name: Set output
+      id: set_output
+      run: echo "table=$(cat table.md)" >> $GITHUB_ENV
+
+    - name: Display table
+      run: echo "${{ env.table }}"
+
