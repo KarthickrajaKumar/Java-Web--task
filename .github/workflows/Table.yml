@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Generate data
-        run: # This line is a comment (not a command)
+        run: |
           data=[
             ["Column 1", "Column 2", "Column 3"],
             ["Value 1", "Value 2", "Value 3"],
