@@ -22,7 +22,6 @@ jobs:
     - name: Set output 
       id: set_output
       run: |
-        echo "table<<EOF" >> $GITHUB_ENV
         cat table.md >> $GITHUB_ENV
         echo "EOF" >> $GITHUB_ENV
 
