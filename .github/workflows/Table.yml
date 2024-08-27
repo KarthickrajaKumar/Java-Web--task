@@ -24,7 +24,7 @@ jobs:
       run: |
         echo "table<<EOF" >> $GITHUB_ENV
         cat table.md >> $GITHUB_ENV
-        
+        echo "EOF" >> $GITHUB_ENV
     - name: Display table
       run: echo "${{ env.table }}"
 
