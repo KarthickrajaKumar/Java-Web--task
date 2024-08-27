@@ -1,6 +1,6 @@
 name: Generate Table
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   build:
@@ -15,11 +15,11 @@ jobs:
       run: |
         echo "| Column 1 | Column 2 | Column 3 |" >> table.md
         echo "|----------|----------|----------|" >> table.md
-        echo "| Value 1  | Value 2  | Value 3  |" >> table.md
-        echo "| Value 4  | Value 5  | Value 6  |" >> table.md
+        echo "| Test 1  | Test 2  | Test 3  |" >> table.md
+        echo "| Test 4  | Test 5  | Test 6  |" >> table.md
         cat table.md
 
-    - name: Set output
+    - name: Set output 
       id: set_output
       run: |
         echo "table<<EOF" >> $GITHUB_ENV
